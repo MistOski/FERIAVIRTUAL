@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   ScrollView,
   TextInput,
-  Image // Necesario para los placeholders de imagen
+  Image
 } from 'react-native';
 
 export default function Carrito() {
@@ -17,7 +17,7 @@ export default function Carrito() {
 
   return (
     <SafeAreaView style={estilos.contenedor}>
-      {/* Encabezado con botón de retroceso */}
+      {/* Este apartado permite regresar atras al apartado principal */}
       <View style={estilos.encabezado}>
         <TouchableOpacity onPress={() => navigation.goBack()} style={estilos.botonAtras}>
           <Ionicons name="arrow-back" size={24} color="black" />
@@ -26,49 +26,11 @@ export default function Carrito() {
       </View>
 
       <ScrollView contentContainerStyle={estilos.scrollContenido}>
-        {/* Contenido del carrito */}
+        {/* Aqui aparecera el contenido del carrito */}
         <Text style={estilos.tituloSeccion}>Carrito de Compras</Text>
-
-        {/* --- Ítem de Producto 1 --- */}
-        <View style={estilos.itemCarrito}>
-          <View style={estilos.imagenPlaceholder} /> {/* Placeholder para la imagen */}
-          <View style={estilos.infoItem}>
-            <Text style={estilos.nombreProducto}>Nombre del Producto 1</Text>
-            <Text style={estilos.descripcionProducto}>Descripción breve del producto 1. Color: Negro. Talla: L.</Text>
-            <Text style={estilos.precioProducto}>$15.000</Text>
-            <TouchableOpacity style={estilos.botonEliminar}>
-              <Text style={estilos.textoEliminar}>Eliminar</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        {/* --- Ítem de Producto 2 --- */}
-        <View style={estilos.itemCarrito}>
-          <View style={estilos.imagenPlaceholder} /> {/* Placeholder para la imagen */}
-          <View style={estilos.infoItem}>
-            <Text style={estilos.nombreProducto}>Nombre del Producto 2</Text>
-            <Text style={estilos.descripcionProducto}>Descripción breve del producto 2. Color: Blanco. Talla: M.</Text>
-            <Text style={estilos.precioProducto}>$25.000</Text>
-            <TouchableOpacity style={estilos.botonEliminar}>
-              <Text style={estilos.textoEliminar}>Eliminar</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        {/* --- Ítem de Producto 3 --- */}
-        <View style={estilos.itemCarrito}>
-          <View style={estilos.imagenPlaceholder} /> {/* Placeholder para la imagen */}
-          <View style={estilos.infoItem}>
-            <Text style={estilos.nombreProducto}>Nombre del Producto 3</Text>
-            <Text style={estilos.descripcionProducto}>Descripción breve del producto 3. Color: Rojo. Talla: S.</Text>
-            <Text style={estilos.precioProducto}>$10.000</Text>
-            <TouchableOpacity style={estilos.botonEliminar}>
-              <Text style={estilos.textoEliminar}>Eliminar</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        {/* Sección de Ubicación */}
+        <Text style={estilos.textoCarritoVacio}>Tu carrito está vacío.</Text>
+       
+        {/* Opcion para que el usuario pueda poner directamente su ubicacion */}
         <View style={estilos.seccionUbicacion}>
           <Text style={estilos.tituloUbicacion}>Ingresa tu ubicación</Text>
           <View style={estilos.contenedorInputUbicacion}>
@@ -81,33 +43,14 @@ export default function Carrito() {
           </View>
         </View>
 
-        {/* Botón de Proceder con la Compra */}
+        {/* Boton de proceder con la compra */}
         <TouchableOpacity style={estilos.botonProceder}>
           <Text style={estilos.textoBotonProceder}>Proceder con la compra</Text>
         </TouchableOpacity>
 
-        {/* Productos que te interesaron */}
+        {/* Apartado de productos que te interesaron */}
         <Text style={estilos.tituloInteresados}>Productos que te interesaron</Text>
-        <View style={estilos.contenedorSugerencias}>
-          {/* Sugerencia 1 */}
-          <View style={estilos.tarjetaSugerencia}>
-            <View style={estilos.imagenSugerenciaPlaceholder} />
-            <Text style={estilos.textoTituloSugerencia}>Producto Sugerido 1</Text>
-            <Text style={estilos.textoPrecioSugerencia}>$X.XXX</Text>
-          </View>
-          {/* Sugerencia 2 */}
-          <View style={estilos.tarjetaSugerencia}>
-            <View style={estilos.imagenSugerenciaPlaceholder} />
-            <Text style={estilos.textoTituloSugerencia}>Producto Sugerido 2</Text>
-            <Text style={estilos.textoPrecioSugerencia}>$X.XXX</Text>
-          </View>
-          {/* Sugerencia 3 */}
-          <View style={estilos.tarjetaSugerencia}>
-            <View style={estilos.imagenSugerenciaPlaceholder} />
-            <Text style={estilos.textoTituloSugerencia}>Producto Sugerido 3</Text>
-            <Text style={estilos.textoPrecioSugerencia}>$X.XXX</Text>
-          </View>
-        </View>
+        <Text style={estilos.textoSinSugerencias}>No hay productos sugeridos por el momento.</Text>
 
       </ScrollView>
     </SafeAreaView>
@@ -117,7 +60,7 @@ export default function Carrito() {
 const estilos = StyleSheet.create({
   contenedor: {
     flex: 1,
-    backgroundColor: '#FFD8AD', // Color de fondo de las otras pantallas
+    backgroundColor: '#FFD8AD',
   },
   encabezado: {
     flexDirection: 'row',
@@ -134,11 +77,11 @@ const estilos = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     color: '#000',
-    flex: 1, // Para que el título ocupe el espacio restante
+    flex: 1,
   },
   scrollContenido: {
     paddingHorizontal: 20,
-    paddingBottom: 30, // Espacio al final del scroll
+    paddingBottom: 30,
   },
   tituloSeccion: {
     fontSize: 22,
@@ -147,6 +90,22 @@ const estilos = StyleSheet.create({
     marginTop: 20,
     marginBottom: 20,
   },
+
+  textoCarritoVacio: {
+    textAlign: 'center',
+    fontSize: 16,
+    color: '#7A7A7A',
+    marginTop: 20,
+    marginBottom: 40, 
+  },
+  textoSinSugerencias: {
+    textAlign: 'center',
+    fontSize: 14,
+    color: '#7A7A7A',
+    marginTop: 10,
+    marginBottom: 20,
+  },
+
   itemCarrito: {
     flexDirection: 'row',
     backgroundColor: '#fff',
@@ -163,7 +122,7 @@ const estilos = StyleSheet.create({
   imagenPlaceholder: {
     width: 80,
     height: 80,
-    backgroundColor: '#E0E0E0', // Gris claro para el placeholder de imagen
+    backgroundColor: '#E0E0E0',
     borderRadius: 8,
     marginRight: 15,
     borderWidth: 1,
@@ -186,21 +145,61 @@ const estilos = StyleSheet.create({
   precioProducto: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#FF6624', // Naranja para el precio
+    color: '#FF6624',
     marginBottom: 10,
   },
   botonEliminar: {
-    backgroundColor: '#FF6624', // Naranja para el botón eliminar
+    backgroundColor: '#FF6624',
     paddingVertical: 5,
     paddingHorizontal: 10,
     borderRadius: 5,
-    alignSelf: 'flex-start', // Para que el botón no ocupe todo el ancho
+    alignSelf: 'flex-start',
   },
   textoEliminar: {
     color: '#fff',
     fontSize: 12,
     fontWeight: 'bold',
   },
+  contenedorSugerencias: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flexWrap: 'wrap',
+  },
+  tarjetaSugerencia: {
+    width: '32%',
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    padding: 10,
+    marginBottom: 15,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 3,
+  },
+  imagenSugerenciaPlaceholder: {
+    width: '100%',
+    height: 70,
+    backgroundColor: '#E0E0E0',
+    borderRadius: 8,
+    marginBottom: 8,
+    borderWidth: 1,
+    borderColor: '#CCC',
+  },
+  textoTituloSugerencia: {
+    fontSize: 13,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#000',
+    marginBottom: 4,
+  },
+  textoPrecioSugerencia: {
+    fontSize: 12,
+    color: '#FF6624',
+    fontWeight: 'bold',
+  },
+  
   seccionUbicacion: {
     marginTop: 30,
     marginBottom: 20,
@@ -235,7 +234,7 @@ const estilos = StyleSheet.create({
     color: '#000',
   },
   botonProceder: {
-    backgroundColor: '#FF6624', // Naranja para el botón principal
+    backgroundColor: '#FF6624',
     paddingVertical: 15,
     borderRadius: 8,
     alignItems: 'center',
@@ -257,44 +256,5 @@ const estilos = StyleSheet.create({
     fontWeight: 'bold',
     color: '#000',
     marginBottom: 15,
-  },
-  contenedorSugerencias: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    flexWrap: 'wrap', // Para que las tarjetas se envuelvan si no caben
-  },
-  tarjetaSugerencia: {
-    width: '32%', // Aproximadamente un tercio del ancho para 3 en una fila con espaciado
-    backgroundColor: '#fff',
-    borderRadius: 10,
-    padding: 10,
-    marginBottom: 15,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
-    elevation: 3,
-  },
-  imagenSugerenciaPlaceholder: {
-    width: '100%',
-    height: 70,
-    backgroundColor: '#E0E0E0',
-    borderRadius: 8,
-    marginBottom: 8,
-    borderWidth: 1,
-    borderColor: '#CCC',
-  },
-  textoTituloSugerencia: {
-    fontSize: 13,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: '#000',
-    marginBottom: 4,
-  },
-  textoPrecioSugerencia: {
-    fontSize: 12,
-    color: '#FF6624',
-    fontWeight: 'bold',
   },
 });

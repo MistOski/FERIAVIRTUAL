@@ -1,11 +1,11 @@
 import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Importa useNavigation
+import { useNavigation } from '@react-navigation/native'; 
 
 export default function PantallaP() {
-  const navigation = useNavigation(); // Obtén el objeto de navegación
+  const navigation = useNavigation(); 
 
-  // operador ternario para nombre usuario o invitado
+  
   return (
     <View style={estilos.contenedor}>
 
@@ -15,7 +15,7 @@ export default function PantallaP() {
         <TouchableOpacity>
           <Ionicons name="notifications-outline" size={24} color="black" />
         </TouchableOpacity>
-        {/* === MODIFICACIÓN AQUÍ: Botón del Carrito para navegar a Carrito.js === */}
+        {/* Aqui se usa el boton del carrito para poder ir al apartado del carrito*/}
         <TouchableOpacity onPress={() => navigation.navigate('Carrito')}>
           <Ionicons name="cart-outline" size={24} color="black" />
         </TouchableOpacity>
