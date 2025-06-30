@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import {
     SafeAreaView,
@@ -9,6 +10,8 @@ import {
 } from 'react-native';
 
 export default function Inicio() {
+  const nav = useNavigation();
+
   const [mostrarContraseña, setMostrarContraseña] = useState(false);
   const [correo, setCorreo] = useState('');
   const [contraseña, setContraseña] = useState('');
@@ -50,7 +53,8 @@ export default function Inicio() {
           <Text style={estilos.textoBotonIniciar}>Iniciar sesión</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        {/* ✅ Navegación a la pantalla PantallaP */}
+        <TouchableOpacity onPress={() => nav.navigate('PantallaP')}>
           <Text style={estilos.botonInvitado}>Entrar como invitado</Text>
         </TouchableOpacity>
 
