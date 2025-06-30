@@ -7,11 +7,14 @@ Actualmente se encuentran disponibles los apartados de inicio de sesión (Inicio
 Se creo una carpeta llamada "PROYECTO", dentro de ella una carpeta con el nombre del proyecto la cual es "FERIAVIRTUAL" y dentro de este se muestran todos los archivos necesarios para su desarrollo y ejecucion:
 
 C:\PROYECTO\FERIAVIRTUAL             
-├── assets/                   # De momento no se han integrado imagenes          
+├── assets/                   # De momento no se han integrado imagenes  
+
+
 ├── screens/                  # Se creó una carpeta donde ubicar los diferentes apartados.
 │   ├── Inicio.js             # Pantalla de inicio/login, se busca actualizar el apartado de Google por su imagen oficial.
 │   ├── PantallaP.js          # Pantalla principal con las publicaciones.
 │   ├── Carrito.js            # Pantalla del carrito.
+
 ├── App.js                    # El archivo de entrada principal donde se conectan los apartados y se carga el react native.
 └── README.md                 # Archivo que muestra el texto actual.
 
