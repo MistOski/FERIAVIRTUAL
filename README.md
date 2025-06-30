@@ -32,22 +32,24 @@ Una vez ingresado como invitado, se dirigirá al apartado principal donde se mue
 
 Si bien no se han implementado sus respectivas funciones, a varios textos e iconos se les ha integrado la función "TouchableOpacity", la cual, al presionarlos, se obtiene una respuesta visual.
 
-Se han importado diferentes requisitos para desarrollar debidamente la aplicacion:
+Se han importado diferentes requisitos para desarrollar debidamente la aplicación:
 
 import { useNavigation } from '@react-navigation/native'; #permite la navegación entre pantallas, tal como el uso de GoBack, la cual permite retroceder al apartado anterior.
 
 import { Ionicons } from '@expo/vector-icons'; # Se importan los iconos a usar (carrito de compras, notificaciones, etc.).
 
-import React from 'react'; 
+import { useState } from 'react'; # Permite el cambio de valores, como por ejemplo la contraseña al alternar entre mostrar/ocultar.
+
+import React from 'react'; # Biblioteca esencial para el desarrollo de la interfaz.
 
 import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  ScrollView,
-  TextInput,
-  Image
+  SafeAreaView, # Permite que la interfaz se ajuste a la pantalla del usuario.
+  StyleSheet, # Define los estilos de un objeto, permite que los estilos se creen una sola vez y se reutilicen.
+  Text, # Muestra el texto.
+  View, # Agrupa textos
+  TouchableOpacity, # Agrega una respuesta visual al tacto del usuario.
+  ScrollView, # Permite desplazarse dentro de la pantalla.
+  TextInput, # Permite al usuario escribir dentro de la aplicación.  
+  Image # Permite cargar imágenes
 }
 
