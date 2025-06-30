@@ -1,5 +1,5 @@
-import { useNavigation } from '@react-navigation/native';
-import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native'; // permite la navegacion entre pantallas tal como el uso de GoBack, la cual permite retroceder
+import { Ionicons } from '@expo/vector-icons'; // se importan los iconos a usar 
 import React from 'react';
 import {
   SafeAreaView,
