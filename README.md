@@ -49,13 +49,21 @@ import { useState } from 'react'; # Permite el cambio de valores, como por ejemp
 import React from 'react'; # Biblioteca esencial para el desarrollo de la interfaz.
 
 import {
+
   SafeAreaView, # Permite que la interfaz se ajuste a la pantalla del usuario.
+
   StyleSheet, # Define los estilos de un objeto, permite que los estilos se creen una sola vez y se reutilicen.
+
   Text, # Muestra el texto.
+
   View, # Agrupa textos
+
   TouchableOpacity, # Agrega una respuesta visual al tacto del usuario.
+
   ScrollView, # Permite desplazarse dentro de la pantalla.
+
   TextInput, # Permite al usuario escribir dentro de la aplicación.  
+  
   Image # Permite cargar imágenes
 }
 
