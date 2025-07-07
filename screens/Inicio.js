@@ -7,22 +7,15 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  ScrollView,
-  Image
+  ScrollView
 } from 'react-native';
-
-import { useCart } from '../context/ContenidoCarrito';
-import productsData from '../utils/products.json';
 
 export default function Inicio() {
   const nav = useNavigation();
-  const { addToCart } = useCart();
 
   const [mostrarContraseña, setMostrarContraseña] = useState(false);
   const [correo, setCorreo] = useState('');
   const [contraseña, setContraseña] = useState('');
-
-  const productos = productsData;
 
   return (
     <SafeAreaView style={estilos.contenedor}>
@@ -58,9 +51,14 @@ export default function Inicio() {
             </TouchableOpacity>
           </View>
 
-          <TouchableOpacity style={estilos.botonIniciar} onPress={() => {
-            nav.navigate('PantallaP');
-          }}>
+          <TouchableOpacity
+            style={estilos.botonIniciar}
+            onPress={() => {
+              // Eliminado nav.navigate('PantallaP');
+              // Aquí iría la lógica de autenticación real
+              alert('Función de Iniciar Sesión no implementada.');
+            }}
+          >
             <Text style={estilos.textoBotonIniciar}>Iniciar sesión</Text>
           </TouchableOpacity>
 
@@ -70,8 +68,10 @@ export default function Inicio() {
 
           <Text style={estilos.textoRedes}>O inicia sesión con una red social</Text>
 
-          <View style={estilos.botonGooglePlaceholder} />
-          <Text style={estilos.textoGoogle}>Google</Text>
+          {/* Sección de Google: palabra "Google" ahora dentro del TouchableOpacity */}
+          <TouchableOpacity style={estilos.botonGoogle}>
+            <Text style={estilos.textoBotonGoogle}>Google</Text>
+          </TouchableOpacity>
 
           <View style={estilos.opcionesFinales}>
             <Text style={estilos.textoOlvido}>¿Olviaste tu contraseña? </Text>
@@ -80,24 +80,6 @@ export default function Inicio() {
             </TouchableOpacity>
           </View>
         </View>
-
-        <Text style={estilos.tituloProductos}>Explora nuestros productos</Text>
-        <View style={estilos.contenedorProductos}>
-          {productos.map(producto => (
-            <View key={producto.id} style={estilos.tarjetaProducto}>
-              <View style={estilos.imagenProductoPlaceholder} />
-              <Text style={estilos.nombreProducto}>{producto.nombre}</Text>
-              <Text style={estilos.precioProducto}>{producto.precio}</Text>
-              <TouchableOpacity
-                style={estilos.botonAnadir}
-                onPress={() => addToCart()}
-              >
-                <Text style={estilos.textoBotonAnadir}>Añadir al carrito</Text>
-              </TouchableOpacity>
-            </View>
-          ))}
-        </View>
-
       </ScrollView>
     </SafeAreaView>
   );
@@ -184,7 +166,8 @@ const estilos = StyleSheet.create({
     color: '#000',
     marginVertical: 20,
   },
-  botonGooglePlaceholder: {
+  // Nuevo estilo para el botón de Google
+  botonGoogle: {
     backgroundColor: '#ffffff',
     paddingVertical: 10,
     borderRadius: 6,
@@ -194,15 +177,11 @@ const estilos = StyleSheet.create({
     width: '100%',
     height: 40,
     marginBottom: 10,
+    justifyContent: 'center', // Centra el texto verticalmente
   },
-  textoGoogle: {
+  textoBotonGoogle: { // Renombrado de textoGoogle a textoBotonGoogle
     fontWeight: 'bold',
     color: '#000',
-    textAlign: 'center',
-    position: 'absolute',
-    top: 10,
-    left: 0,
-    right: 0,
   },
   opcionesFinales: {
     flexDirection: 'row',
@@ -214,68 +193,6 @@ const estilos = StyleSheet.create({
   },
   textoRegistro: {
     color: '#FF6624',
-    fontWeight: 'bold',
-  },
-  tituloProductos: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#000',
-    marginTop: 30,
-    marginBottom: 15,
-    alignSelf: 'flex-start',
-  },
-  contenedorProductos: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    width: '100%',
-  },
-  tarjetaProducto: {
-    backgroundColor: '#fff',
-    borderRadius: 10,
-    padding: 10,
-    marginBottom: 15,
-    width: '48%',
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 3,
-    elevation: 3,
-  },
-  imagenProductoPlaceholder: {
-    width: '100%',
-    height: 100,
-    backgroundColor: '#E0E0E0',
-    borderRadius: 8,
-    marginBottom: 8,
-    borderWidth: 1,
-    borderColor: '#CCC',
-  },
-  nombreProducto: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 5,
-    color: '#000',
-  },
-  precioProducto: {
-    fontSize: 14,
-    color: '#FF6624',
-    fontWeight: 'bold',
-    marginBottom: 10,
-  },
-  botonAnadir: {
-    backgroundColor: '#FF6624',
-    paddingVertical: 8,
-    paddingHorizontal: 15,
-    borderRadius: 5,
-    width: '90%',
-    alignItems: 'center',
-  },
-  textoBotonAnadir: {
-    color: '#fff',
-    fontSize: 12,
     fontWeight: 'bold',
   },
 });

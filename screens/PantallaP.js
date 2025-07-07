@@ -18,7 +18,6 @@ export default function PantallaP() {
       <ScrollView contentContainerStyle={estilos.scrollContent}>
         <View style={estilos.encabezado}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('Opciones')}
             style={estilos.perfilTrigger}
           >
             <View style={estilos.circuloUsuario} />
