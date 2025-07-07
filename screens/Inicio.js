@@ -54,9 +54,7 @@ export default function Inicio() {
           <TouchableOpacity
             style={estilos.botonIniciar}
             onPress={() => {
-              // Eliminado nav.navigate('PantallaP');
-              // Aquí iría la lógica de autenticación real
-              alert('Función de Iniciar Sesión no implementada.');
+              alert('Función de Iniciar Sesión no implementada todavia.');
             }}
           >
             <Text style={estilos.textoBotonIniciar}>Iniciar sesión</Text>
@@ -68,7 +66,7 @@ export default function Inicio() {
 
           <Text style={estilos.textoRedes}>O inicia sesión con una red social</Text>
 
-          {/* Sección de Google: palabra "Google" ahora dentro del TouchableOpacity */}
+          
           <TouchableOpacity style={estilos.botonGoogle}>
             <Text style={estilos.textoBotonGoogle}>Google</Text>
           </TouchableOpacity>
@@ -166,7 +164,7 @@ const estilos = StyleSheet.create({
     color: '#000',
     marginVertical: 20,
   },
-  // Nuevo estilo para el botón de Google
+
   botonGoogle: {
     backgroundColor: '#ffffff',
     paddingVertical: 10,
@@ -177,9 +175,9 @@ const estilos = StyleSheet.create({
     width: '100%',
     height: 40,
     marginBottom: 10,
-    justifyContent: 'center', // Centra el texto verticalmente
+    justifyContent: 'center', 
   },
-  textoBotonGoogle: { // Renombrado de textoGoogle a textoBotonGoogle
+  textoBotonGoogle: { 
     fontWeight: 'bold',
     color: '#000',
   },
