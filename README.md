@@ -66,4 +66,3 @@ import {
   
   Image # Permite cargar imágenes
 }
-

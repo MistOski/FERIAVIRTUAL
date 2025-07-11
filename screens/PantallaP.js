@@ -6,20 +6,26 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  ScrollView
+  ScrollView,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 export default function PantallaP() {
   const navigation = useNavigation();
 
+  const productos = [
+    { nombre: 'Sombrero de Lana Chilote', precio: 15000 },
+    { nombre: 'Cesta de Quilineja Tejida a Mano', precio: 18000 },
+    { nombre: 'Bufanda de Lana Natural', precio: 12000 },
+    { nombre: 'Tallado en Madera de Lenga', precio: 25000 },
+    { nombre: 'Alfombra de Telar Mapuche', precio: 40000 },
+  ];
+
   return (
     <SafeAreaView style={estilos.contenedorSafeArea}>
       <ScrollView contentContainerStyle={estilos.scrollContent}>
         <View style={estilos.encabezado}>
-          <TouchableOpacity
-            style={estilos.perfilTrigger}
-          >
+          <TouchableOpacity style={estilos.perfilTrigger}>
             <View style={estilos.circuloUsuario} />
             <Text style={estilos.nombre}>Ignacio Millapani</Text>
           </TouchableOpacity>
@@ -48,11 +54,22 @@ export default function PantallaP() {
         </TouchableOpacity>
 
         <Text style={estilos.tituloSeccion}>Últimas Publicaciones</Text>
-        <View style={estilos.publicacionPlaceholder} />
-        <View style={estilos.publicacionPlaceholder} />
-        <View style={estilos.publicacionPlaceholder} />
-        <View style={estilos.publicacionPlaceholder} />
-        <View style={estilos.publicacionPlaceholder} />
+
+        {productos.map((producto, index) => (
+          <View key={index} style={estilos.publicacionProducto}>
+            <View style={estilos.imagenPlaceholder} />
+            <Text style={estilos.productoNombre}>{producto.nombre}</Text>
+            <Text style={estilos.productoPrecio}>${producto.precio.toLocaleString('es-CL')}</Text>
+            <TouchableOpacity
+              style={estilos.botonAgregar}
+              onPress={() => {
+                console.log(`Añadido ${producto.nombre} al carrito`);
+              }}
+            >
+              <Text style={estilos.botonAgregarTexto}>Añadir al carrito</Text>
+            </TouchableOpacity>
+          </View>
+        ))}
 
       </ScrollView>
     </SafeAreaView>
@@ -137,13 +154,41 @@ const estilos = StyleSheet.create({
     marginBottom: 15,
     alignSelf: 'flex-start',
   },
-  publicacionPlaceholder: {
+  publicacionProducto: {
     width: '100%',
-    height: 180,
-    backgroundColor: '#E0E0E0',
+    backgroundColor: '#FFF',
     borderRadius: 10,
+    padding: 15,
     marginBottom: 15,
     borderWidth: 1,
     borderColor: '#CCC',
+  },
+  imagenPlaceholder: {
+    width: '100%',
+    height: 120,
+    backgroundColor: '#D0D0D0',
+    borderRadius: 8,
+    marginBottom: 10,
+  },
+  productoNombre: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 8,
+    color: '#333',
+  },
+  productoPrecio: {
+    fontSize: 14,
+    marginBottom: 12,
+    color: '#666',
+  },
+  botonAgregar: {
+    backgroundColor: '#FF8C42',
+    paddingVertical: 8,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  botonAgregarTexto: {
+    color: '#FFF',
+    fontWeight: 'bold',
   },
 });
